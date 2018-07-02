@@ -33,6 +33,7 @@ public class CheckUpdateThread implements Runnable {
     private String updateXmlUrl;
     private AuthenticationOptions authentication;
     private Handler mHandler;
+    private JSONObject options;
 
     private void setMHashMap(HashMap<String, String> mHashMap) {
         this.mHashMap = mHashMap;
@@ -49,6 +50,7 @@ public class CheckUpdateThread implements Runnable {
         this.updateXmlUrl = updateXmlUrl;
         this.authentication = new AuthenticationOptions(options);
         this.mHandler = mHandler;
+        this.options = options;
     }
 
     @Override
@@ -135,15 +137,25 @@ public class CheckUpdateThread implements Runnable {
      */
     private int getVersionCodeRemote() {
         int versionCodeRemote = 0;
-
-        InputStream is = returnFileIS(updateXmlUrl);
-        // 解析XML文件。 由于XML文件比较小，因此使用DOM方式进行解析
-        ParseXmlService service = new ParseXmlService();
-        try {
-            setMHashMap(service.parseXml(is));
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (!"".equals(updateXmlUrl)) {
+            InputStream is = returnFileIS(updateXmlUrl);
+            // 解析XML文件。 由于XML文件比较小，因此使用DOM方式进行解析
+            ParseXmlService service = new ParseXmlService();
+            try {
+                setMHashMap(service.parseXml(is));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            // try get version object inside options
+            HashMap<String, String> versionObject = new HashMap<String, String>();
+            versionObject.put("version", this.options.getString("version"));
+            versionObject.put("name", this.options.getString("name"));
+            versionObject.put("url", this.options.getString("url"));
+            setMHashMap(versionObject);
         }
+
+
         if (null != getMHashMap()) {
             versionCodeRemote = Integer.valueOf(getMHashMap().get("version"));
         }

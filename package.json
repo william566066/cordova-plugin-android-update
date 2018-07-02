@@ -1,16 +1,16 @@
 {
-  "name": "cordova-plugin-app-update",
-  "version": "1.6.0",
+  "name": "cordova-plugin-android-update",
+  "version": "1.0.0",
   "description": "Cordova App Update",
   "cordova": {
-    "id": "cordova-plugin-app-update",
+    "id": "cordova-plugin-android-update",
     "platforms": [
       "android"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vaenow/cordova-plugin-app-update.git"
+    "url": "git+https://github.com/htqbuu/cordova-plugin-android-update.git"
   },
   "keywords": [
     "cordova",
@@ -29,13 +29,13 @@
     "jshint": "node node_modules/jshint/bin/jshint www && node node_modules/jshint/bin/jshint src"
   },
   "bugs": {
-    "url": "https://github.com/vaenow/cordova-plugin-app-update/issues"
+    "url": "https://github.com/htqbuu/cordova-plugin-android-update/issues"
   },
   "scripts": {
     "test": "npm run jshint",
     "jshint": "node node_modules/jshint/bin/jshint www && node node_modules/jshint/bin/jshint src && node node_modules/jshint/bin/jshint tests"
   },
-  "homepage": "https://github.com/vaenow/cordova-plugin-app-update#readme",
+  "homepage": "https://github.com/htqbuu/cordova-plugin-android-update#readme",
   "devDependencies": {
     "jshint": "^2.6.0"
   }

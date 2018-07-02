@@ -1,28 +1,24 @@
 
 
-![travis](https://travis-ci.org/vaenow/cordova-plugin-app-update.svg?branch=master)  
+![travis](https://travis-ci.org/vaenow/cordova-plugin-android-update.svg?branch=master)  
 
-[![NPM](https://nodei.co/npm/cordova-plugin-app-update.png?downloads=true&downloadRank=true)](https://nodei.co/npm/cordova-plugin-app-update/)
+[![NPM](https://nodei.co/npm/cordova-plugin-android-update.png?downloads=true&downloadRank=true)](https://nodei.co/npm/cordova-plugin-android-update/)
 
-# cordova-plugin-app-update
+# cordova-plugin-android-update
 App updater for Cordova/PhoneGap
 
 # Demo 
-Try it yourself:
+Please Refer to the demo of the original repo
 
-Just clone and install this demo.
 [cordova-plugin-app-update-DEMO](https://github.com/vaenow/cordova-plugin-app-update-demo)
-:tada:
 
- * 如果喜欢它，请别忘了给我一颗鼓励的星
- * Support me a `Star` if it is necessary.  :+1:
  
 # Preview
-![enter image description here](https://raw.githubusercontent.com/vaenow/cordova-plugin-app-update/master/res/img/Screenshot_2015-10-31-13-42-13.jpg)
+![enter image description here](https://raw.githubusercontent.com/vaenow/cordova-plugin-android-update/master/res/img/Screenshot_2015-10-31-13-42-13.jpg)
 
 # 
 
-![enter image description here](https://raw.githubusercontent.com/vaenow/cordova-plugin-app-update/master/res/img/Screenshot_2015-10-31-13-42-19.jpg)
+![enter image description here](https://raw.githubusercontent.com/vaenow/cordova-plugin-android-update/master/res/img/Screenshot_2015-10-31-13-42-19.jpg)
 
 # Install
 
@@ -30,7 +26,7 @@ Just clone and install this demo.
 
 > `"cordova-android": "6.3.0"`
 
-`cordova plugin add cordova-plugin-app-update --save`
+`cordova plugin add cordova-plugin-android-update --save`
 
 # Usage
 
@@ -39,17 +35,50 @@ Just clone and install this demo.
 var updateUrl = "http://192.168.0.1/version.xml";
 window.AppUpdate.checkAppUpdate(onSuccess, onFail, updateUrl);
 ```
+OR you can pass version info directly
+```js
+var versionInfo = {
+    version: "302048",
+    name: "name",
+    url: "http://192.168.0.1/android.apk"
+};
+window.AppUpdate.checkAppUpdate(onSuccess, onFail, versionInfo);
+```
 
 - Verbose
 ```js
-var appUpdate = cordova.require('cordova-plugin-app-update.AppUpdate');
+var appUpdate = cordova.require('cordova-plugin-android-update.AppUpdate');
 var updateUrl = "http://192.168.0.1/version.xml";
 appUpdate.checkAppUpdate(onSuccess, onFail, updateUrl);
 ```
+OR you can pass version info directly
+```js
+var appUpdate = cordova.require('cordova-plugin-android-update.AppUpdate');
+var versionInfo = {
+    version: "302048",
+    name: "name",
+    url: "http://192.168.0.1/android.apk"
+};
+appUpdate.checkAppUpdate(onSuccess, onFail, versionInfo);
+```
 
-- Auth download  [MORE](https://github.com/vaenow/cordova-plugin-app-update/pull/62)
+- Auth download  [MORE](https://github.com/vaenow/cordova-plugin-android-update/pull/62)
 ```js
 appUpdate.checkAppUpdate(onSuccess, onFail, updateUrl, {
+    'authType' : 'basic',
+    'username' : 'test',
+    'password' : 'test'
+})
+```
+OR you can pass version info directly
+```js
+var appUpdate = cordova.require('cordova-plugin-android-update.AppUpdate');
+var versionInfo = {
+    version: "302048",
+    name: "name",
+    url: "http://192.168.0.1/android.apk"
+};
+appUpdate.checkAppUpdate(onSuccess, onFail, versionInfo, {
     'authType' : 'basic',
     'username' : 'test',
     'password' : 'test'

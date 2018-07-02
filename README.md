@@ -14,11 +14,11 @@ Please Refer to the demo of the original repo
 
  
 # Preview
-![enter image description here](https://raw.githubusercontent.com/vaenow/cordova-plugin-android-update/master/res/img/Screenshot_2015-10-31-13-42-13.jpg)
+![enter image description here](https://raw.githubusercontent.com/vaenow/cordova-plugin-app-update/master/res/img/Screenshot_2015-10-31-13-42-13.jpg)
 
 # 
 
-![enter image description here](https://raw.githubusercontent.com/vaenow/cordova-plugin-android-update/master/res/img/Screenshot_2015-10-31-13-42-19.jpg)
+![enter image description here](https://raw.githubusercontent.com/vaenow/cordova-plugin-app-update/master/res/img/Screenshot_2015-10-31-13-42-19.jpg)
 
 # Install
 

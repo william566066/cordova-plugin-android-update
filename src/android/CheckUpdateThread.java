@@ -137,22 +137,24 @@ public class CheckUpdateThread implements Runnable {
      */
     private int getVersionCodeRemote() {
         int versionCodeRemote = 0;
-        if (!"".equals(updateXmlUrl)) {
-            InputStream is = returnFileIS(updateXmlUrl);
-            // 解析XML文件。 由于XML文件比较小，因此使用DOM方式进行解析
-            ParseXmlService service = new ParseXmlService();
-            try {
-                setMHashMap(service.parseXml(is));
-            } catch (Exception e) {
-                e.printStackTrace();
+        try {
+            if (!"".equals(updateXmlUrl)) {
+                InputStream is = returnFileIS(updateXmlUrl);
+                // 解析XML文件。 由于XML文件比较小，因此使用DOM方式进行解析
+                ParseXmlService service = new ParseXmlService();
+
+                    setMHashMap(service.parseXml(is));
+
+            } else {
+                // try get version object inside options
+                HashMap<String, String> versionObject = new HashMap<String, String>();
+                versionObject.put("version", this.options.getString("version"));
+                versionObject.put("name", this.options.getString("name"));
+                versionObject.put("url", this.options.getString("url"));
+                setMHashMap(versionObject);
             }
-        } else {
-            // try get version object inside options
-            HashMap<String, String> versionObject = new HashMap<String, String>();
-            versionObject.put("version", this.options.getString("version"));
-            versionObject.put("name", this.options.getString("name"));
-            versionObject.put("url", this.options.getString("url"));
-            setMHashMap(versionObject);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    id="cordova-plugin-android-update" version="1.6.0">
+    id="cordova-plugin-android-update" version="1.0.1">
     <name>AppUpdate</name>
     <description>Cordova App Update</description>
     <license>Apache 2.0</license>
@@ -10,6 +10,7 @@
         <clobbers target="AppUpdate" />
     </js-module>
     <platform name="android">
+
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="AppUpdate">
                 <param name="android-package" value="com.vaenow.appupdate.android.CheckAppUpdate"/>
@@ -35,7 +36,8 @@
             </provider>
         </config-file>
 
-        <source-file src="src/android" target-dir="src/com/vaenow/appupdate"/>
+        <source-file src="src/android" target-dir="app/src/main/java/com/vaenow/appupdate"/>
+
         <source-file src="res/values/appupdate_strings.xml" target-dir="res/values"/>
         <source-file src="res/values-en/appupdate_strings.xml" target-dir="res/values-en"/>
         <source-file src="res/values-es/appupdate_strings.xml" target-dir="res/values-es"/>

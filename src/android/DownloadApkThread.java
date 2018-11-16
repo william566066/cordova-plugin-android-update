@@ -1,6 +1,6 @@
 package com.vaenow.appupdate.android;
 
-import android.AuthenticationOptions;
+import com.vaenow.appupdate.android.AuthenticationOptions;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Environment;

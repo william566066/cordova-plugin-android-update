@@ -149,10 +149,15 @@ public class CheckUpdateThread implements Runnable {
         } else {
             // try get version object inside options
             HashMap<String, String> versionObject = new HashMap<String, String>();
-            versionObject.put("version", this.options.getString("version"));
-            versionObject.put("name", this.options.getString("name"));
-            versionObject.put("url", this.options.getString("url"));
-            setMHashMap(versionObject);
+            try{
+                versionObject.put("version", this.options.getString("version"));
+                versionObject.put("name", this.options.getString("name"));
+                versionObject.put("url", this.options.getString("url"));
+                setMHashMap(versionObject);
+            }catch (JSONException e){
+
+            }
+
         }
 
 

@@ -1,6 +1,6 @@
 package com.vaenow.appupdate.android;
 
-import android.AuthenticationOptions;
+import com.vaenow.appupdate.android.AuthenticationOptions;
 import android.content.Context;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Handler;
